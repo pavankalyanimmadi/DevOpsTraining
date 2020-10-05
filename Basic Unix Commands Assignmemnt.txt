@@ -15,5 +15,6 @@
     -----command : ls -R
 
 6. Sort the files by size with largest at the top 
+    ----command: ls -lS 
 
 
