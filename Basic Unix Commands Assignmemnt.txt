@@ -1,0 +1,19 @@
+1. List the contents of a directory and their attributes
+       ----command: ls
+
+2. Long list the content with file, directory ownership, permissions,sizes, etc…
+   -----command : ls -l
+
+3. Display the size of the file in human readable format
+
+   -----command: ls -lh
+
+4. Show all files and folders including hidden one.
+   -----command: ls -a
+
+5. list directories recursively
+    -----command : ls -R
+
+6. Sort the files by size with largest at the top 
+
+
