@@ -17,4 +17,270 @@
 6. Sort the files by size with largest at the top 
     ----command: ls -lS 
 
+7. Sort the files by last time modified displaying the newest first
+   ----command : ls -t
+
+8. Diplay the location of a program/command, where it is installed.
+     -----command :  whereis command (have to check)
+
+9. Which command is used to switch directory from one to another
+    -----command: cd
+
+10. List all the environment variables set for the current shell environment  
+      ------command: env (or) printenv
+ 
+11. Did you notice something in the output of "env" command?
+   --------------have to check.. 
+
+12. Which command is used to print the text or any variables value in the Console/Terminal?
+    ---------command : echo "hiii" (and) to print variable : echo $variableName
+
+13. Print the value of the env variable "PATH" on the console
+   --------------command: echo $PATH
+
+14. Is linux a case-sensitive operating system?
+    ------ I would say yes,  because On Linux, the file system is case sensitive.
+
+15.  Is, "Ls" same as "ls"?
+    ------NO
+
+16. Display your currently logged in user
+   ------command : whoami
+
+17. how do you change the currrently logged in user to another user?
+    -----command :  su - user2 and then enter password
+
+18. Which command is used to leave a shell environment that you are currently logged in to?=============================
+
+19. How do you reboot the system?
+      -----command :  sudo reboot (or) sudo shutdown -r now (where you can specify time after how many minuts system has to restart)
+
+20. How do you shutdown the system?
+    -------command : sudo shutdown.
+
+21. Display all the major running processes in the system
+     ---------commmand: ps , ps -A(all processes running on mechine for all users), ps aux(with more info like time , user...etc)
+
+22.  Understand the output of command used in above question of displaying processes, explain the meaning of each column and what data it displays?
+
+    	 PID - the number of the process
+	TTY - the name of the console that the user is logged into
+	TIME- the amount of CPU in minutes and seconds that the process has been running
+	CMD - the name of the command that launched the process
+
+23. Display the name of the system kernel
+      -----command : uname -s
+
+24. display the kernel release number
+     ------command: uname -r
+
+25. display teh machine type of the current kernel
+    --------command: uname -m
+
+26.  Display the name of the operating system that the kernel is running on
+     --------command : uname -o
+
+27. Display all info that uname command can show.
+  ------------command : uname -a
+
+28. Display the name of directory that you are currently pointing to
+    --------command : pwd
+
+29. change the current directory to another directory that you have in your system.
+     ----------command : cd 
+
+30. Go up one directory
+      ---------command : cd ..
+
+31. Return to last directory
+     ----command : cd -
+
+32. change the current directory to home(logged in user's) directory
+      ----command : cd ~
+
+33. How to check all the command used from the prompt (Command History).
+     -----command: history
+
+34. In which file the history of commands are stored in?
+     ANS: ~/.bash_history 
+
+35. How many lines of history does the system keep and from where you can change it?
+     Ans: depends on HISTSIZE , most probably it would set to 100,500 or 1000.
+
+36. How can you modify bash's history behaviour.
+     
+    To customize bash command history, we will have to make changes in the ~/.bashrc file. To edit the ~/.bashrc file, use the following command:
+      -------command : $ nano ~/.bashrc
+    
+   Once you are done with modifying the file, use Ctrl+O and Ctrl+X to save and close the nano editor.
+   Then run the following command to apply the modifications:
+   ------------command : $ source ~/.bashrc
+
+
+
+37. Display all the commands entered so far, now, try to run a particular command from the history list without typing that command.
+
+
+38.  NOTE:- TAB key is your friend when it comes to command completion and having long file and directory names autocompleted at the bash prompt for you. JUST BE LAZY AND USE TAB KEY FOR AUTO COMPLETION ;-)
+       -------DONE
+
+39. What are the different types of shell and where are they used and how do we use them?
+       
+     The C Shell  -  Denoted as csh 
+     The Bourne Shell  -  Denoted as sh 
+     The Korn Shell  - It is denoted as ksh 
+     GNU Bourne-Again Shell  -  Denoted as bash 
+
+40. What is the difference between login shell and non-login shell?
+
+      The login process tells the shell to behave as a login shell with a convention: passing argument 0, which is normally the name of the shell executable, 
+       with a “-” character prepended. For example, for Bash shell it will be -bash.
+      When a login shell start, it runs a set of predefined script to configure shell environment
+     
+          in this case :- echo $0 would be -bash
+
+      Non Login Shell is the shell, which is started by the login shell. For example, A shell which you started from another shell or started by a program etc.
+      For example, for a Bash shell it will be simply bash.
+
+             in this case :- echo $0 would be bash
+
+41. How do we start login shell and non-login shell?
+
+42. What happens when you start a login shell (which files are read and used and Why)?
+      
+         When Bash is invoked as a Login shell;
+
+   	1)     Login process calls /etc/profile
+	2)     /etc/profile calls the scripts in /etc/profile.d/
+	3)     Login process calls ~/.bash_profile
+	4)    ~/.bash_profile calls ~/.bashrc
+	5)    ~/.bashrc calls /etc/bashrc
+      
+
+43. What happens when you start a non-login shell (Which files are read and used and Why)?
+
+           When bash is invoked as a Non login shell;
+	1)    Non-login process(shell) calls ~/.bashrc
+                  2)   ~/.bashrc calls /etc/bashrc
+	3)    /etc/bashrc calls the scripts in /etc/profile.d/
+
+
+44. What are Shell Configuration Files, why do we need it?
+
+45.  Explain the Order of file usage from the system/user's home directory when user logs in to the System.
+
+46. What are Shell Variables, list major shell variables and what do they represent?
+
+47. How we see all our env variables?
+  ----------- command : env or printenv
+
+
+48. How we see all env variables in alphabical order?
+     ---------command : printenv | sort ,   incase of reverse      printenv | sort -r
+49. What Format does the env var and its values are stored?  
+    --------
+
+50. How do you create your own varible?
+     ------- variable_name=variable_value
+
+51. How do you start a new bash shell?
+
+
+52. Difference between Local/Shell variables to Global Variable
+
+53. Making a variable accessible from other the shell in the system.
+
+54. Show the real life use case of exporting a variable
+
+55. Convert the above script file into a command, The file should run with "myappp" instead of "myapp.sh"
+
+56. What is Globbing? Explain in depth with examples?
+
+57. List all entries with extension ".sh"
+        --------command : ls *.sh
+
+58. List all entries with numbers in it.
+          
+
+
+59.  List all entries that starts with a character and ends with a number
+          ---------------command : ls [a-z]*[0-9]
+
+60. List all entries that name length more than 5 characters
+     -----command : ls 
+
+
+61. What is Quoting? and Why do we need it?
+
+62. Write few(minimum 3) unique examples that shows, how a particular problem is solved using Quoting.
+
+63. How do you find a particular files/directories based on a particular search criteria?
+      HINT:- look for commands -> locate, find and whereis
+
+64. Write major difference between locate, find and whereis?
+    
+
+65. How Globbing is different from locate, find and whereis?
+
+66. Explain the Linux File System.
+
+67. Explain absolute and Relative Paths
+
+68.  What are the different ways of creating a File in linux System? Write an example of each and the difference between them.
+
+       1) Create a file with touch command : touch touch.txt
+
+       2) Create a file with cat command :  cat > cat.txt
+
+       3) Create a file with echo command : echo "This file has been created with echo command" > echo.txt
+              ---------To open the file, we will use cat command to open it.
+     
+       4) Create a file with printf command : printf "This file has been created with printf command" > printf.txt
+              ---------To open the file, we will use cat command to open it.
+
+       5)  Create a file with nano text editor : nano nano.txt
+                --------------To open the file, We will use nano command to open it.
+  
+       6) Create a file with vi text editor : vi sample.txt
+
+       7) Create a file with vim text editor : vim vim.txt
+              -------------To open the file, we will use vim command to open it.
+
+       
+
+
+
+
+
+
+
+69. In how many ways we can delete the files from linux system? write an example of each and teh difference between them.
+
+           1)  Remove or delete a file : rm linuxstufff.log
+           2) Delete the files interactively.  : rm -i linuxstufff.log
+           3)Delete an empty directory   :   rm -d appdata/ (or)   rmdir appdata
+           4) Delete the files and sub-directories interactively:    rm -ir directorname/
+           5) Deleting files forcefully using ‘-f’ option : rm -f tech.txt
+           6) Delete all the files of the current directory that ends with ‘.txt’ : rm -f *.txt
+
+
+
+
+70.  Archiving files using linux command, write a command to archive set of files from linux commands.
+     ------command : tar cf combined.tar directory1/ 
+
+             Here, c flag refers create new archive and f refers the file name.
+
+71.  Extract the archived files from the above step. 
+     ---------command : tar xf ombined.tar -C downloads/
+              
+                  here if you dont provide folder it gets extracted to current folder.
+    
+    
+
+
+    
+
+      
+
 
