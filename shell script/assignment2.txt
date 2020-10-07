@@ -1,0 +1,12 @@
+STARTOFSCRIPT=`date`
+MYUSERNAME="kalyan"
+MYPASSWORD="kalyan123"
+echo ""
+echo "My login name is: $MYUSERNAME"
+echo ""
+echo "My login password is: $MYPASSWORD"
+echo ""
+echo "started this script at: $STARTOFSCRIPT"
+echo ""
+ENDOFSCRIPT=`date`
+echo "ended this script at: $ENDOFSCRIPT"

@@ -1,0 +1,6 @@
+ MYUSERNAME="Terry" # varaible holds username
+ MYUSERNAME="Don" # new username added later
+ echo "We are using the default user called: $MYUSERNAME" # display to the console
+ echo ""
+ DATETIMESTAMP=`date` #variable holds time stamp
+ echo "This is when the script was run: $DATETIMESTAMP" # display time to console when scrpt runs

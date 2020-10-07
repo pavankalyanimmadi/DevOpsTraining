@@ -1,0 +1,7 @@
+# arethmetic operations
+
+expr 2 + 3
+
+expr 2 + 3 \* 5
+
+echo "$(((2+3)*5))"

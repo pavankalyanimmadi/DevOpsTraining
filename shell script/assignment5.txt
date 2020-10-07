@@ -1,0 +1,13 @@
+# this is to show exit status types
+
+
+expr 1 + 5
+echo $?
+
+
+
+rm doodles.shecho
+$?
+
+expr 10 + 10
+echo $?
