@@ -107,7 +107,7 @@
 35. How many lines of history does the system keep and from where you can change it?
      Ans: depends on HISTSIZE , most probably it would set to 100,500 or 1000.
 
-36. How can you modify bash's history behaviour.
+36. How can you modify bash's history behaviour.  
      
     To customize bash command history, we will have to make changes in the ~/.bashrc file. To edit the ~/.bashrc file, use the following command:
       -------command : $ nano ~/.bashrc
@@ -167,9 +167,20 @@
 
 44. What are Shell Configuration Files, why do we need it?
 
+      shell configurations files are executed automatically when login and logout of shell.
+    system wide configuration files(/etc/profile,/etc/bashrc)
+    user configuration files(~/.bash_profile,~/.bash_login,~/.bash_logout)
+    
+
 45.  Explain the Order of file usage from the system/user's home directory when user logs in to the System.
 
 46. What are Shell Variables, list major shell variables and what do they represent?
+
+       shell variable is a special variable that is set by the shell and is reqguired by the shell in order to function correctly. some of the variables are 
+    environment varibles others are local varibles.
+    $HOME - home directory path
+    $PATH - list of directories to search commands
+    $USER - user name
 
 47. How we see all our env variables?
   ----------- command : env or printenv
@@ -185,12 +196,48 @@
 
 51. How do you start a new bash shell?
 
+      bash -c 'gnome-terminal -x cd /absolute-path &&program_nam
+
 
 52. Difference between Local/Shell variables to Global Variable
+     -------local/shell variable scope will be restricted to shell itself where as global variable can be accesed from any antwhere.
+     
+   
 
 53. Making a variable accessible from other the shell in the system.
+     -----we can export variable make them environment variables so that other shell can access it.
+
+           a.sh 
+        -----------------------
+                #!/bin/sh
+
+	MESSAGE="hello"
+	export MESSAGE
+	./b.sh
+    -------------------------------
+
+           b.sh
+     --------------------------------
+
+            echo "The message is: $MESSAGE"
+ 
+     ---------------------------------------
+
+
+          then
+     -----------------------------------------
+     	  	$ ./a.sh
+		The message is: hello
+
+          
+
+     
+
 
 54. Show the real life use case of exporting a variable
+    
+
+   
 
 55. Convert the above script file into a command, The file should run with "myappp" instead of "myapp.sh"
 
@@ -200,6 +247,7 @@
         --------command : ls *.sh
 
 58. List all entries with numbers in it.
+   ----------command :  ls *+([0-9])*
           
 
 
@@ -207,24 +255,70 @@
           ---------------command : ls [a-z]*[0-9]
 
 60. List all entries that name length more than 5 characters
-     -----command : ls 
+     -----command : 
 
 
 61. What is Quoting? and Why do we need it?
 
+     Quoting is used to remove the special meaning of certain characters or words to the shell. 
+     Quoting can be used to disable special treatment for special characters, to prevent reserved words from being recognized as such, and to prevent parameter expansion.
+     normally we use \, " ", ' '.
+       
+
+
+
 62. Write few(minimum 3) unique examples that shows, how a particular problem is solved using Quoting.
+      suppose i'm trying to print doller : echo "hi its $2200" --------> hi its 200  , it won't print doller as its treated it as special character.
+                                                            echo "hi its \$2200"--------> hi its $2200, here we used escape character \ 
+   
+
 
 63. How do you find a particular files/directories based on a particular search criteria?
       HINT:- look for commands -> locate, find and whereis
 
+     locate : locate fileName;
+                 locate "*.txt" -n 5 ; gives only 5 entries.
+                 locate -i text.txt ; ignore case sensitive
+
+      find : find . -name sample.txt
+                find / -type d -name assignment
+
+      whereis: whereis [options] filename
+
+
+
 64. Write major difference between locate, find and whereis?
+
+    Two popular commands for locating files on Linux are find and locate. Depending on the size of your file system and the depth of your search, 
+     the find command can sometime take a long time to scan all of the data.
+   
+    However, this efficiency comes at a cost, the data reported in the output of locate isn’t as fresh as the data reported by the find command.
+    By default, the system will run updatedb which takes a snapshot of the system files once a day, locate uses this snapshot to quickly report what files are where.
+    However, recent file additions or removals (within 24 hours) are not recorded in the snapshot and are unknown to locate.
+
+
+   The whereis command in Linux is used to locate the binary, source, and manual page files for a command. 
+   This command searches for files in a restricted set of locations (binary file directories, man page directories, and library directories).
+
+
     
 
 65. How Globbing is different from locate, find and whereis?
+           ---using globbing used to match the filenames or serching the content in a file. whereis, find, locate used for only files/directories
+
+
+
 
 66. Explain the Linux File System.
+   
+
 
 67. Explain absolute and Relative Paths
+
+    we can say that an absolute path is a complete path from start of actual file system from / directory. Relative path. 
+    Relative path is defined as the path related to the present working directly(pwd)
+
+
 
 68.  What are the different ways of creating a File in linux System? Write an example of each and the difference between them.
 
@@ -274,9 +368,9 @@
 71.  Extract the archived files from the above step. 
      ---------command : tar xf ombined.tar -C downloads/
               
-                  here if you dont provide folder it gets extracted to current folder.
+                  here if you dont provide folder it gets extracted to current folder. 
     
-    
+      
 
 
     
