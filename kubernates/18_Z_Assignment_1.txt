@@ -1,0 +1,75 @@
+Learning Objectives:-
+Perform a rolling update of the container version
+Roll back to the previous working state
+
+
+Problem Statement:-
+Your company's developers have just finished developing a new version of their candy-themed mobile game. They are ready to update the backend services that are running in your Kubernetes cluster. There is a deployment in the cluster managing the replicas for this application. The deployment is called candy-deployment. 
+
+candy-deployment.yaml
+--------------------------
+
+
+
+You have been asked to update the image for the container named candy-ws in this deployment template to a new version, linuxacademycontent/candy-service:3.
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: candy-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: candy-ws
+  template:
+    metadata:
+      labels:
+        app: candy-ws
+    spec:
+      containers:
+      - image: linuxacademycontent/candy-service:2
+        name: candy-ws
+After you have updated the image using a rolling update, check on the status of the update to make sure it is working. If it is not working, perform a rollback to the previous state.
+
+Make sure that the rolling update is in such a way that atleast 25% of pods are up and running during update with Zero downtime.
+
+==============================================================================================================================================================================
+
+
+kubectl apply -f candy-deployment.yaml --record=true
+kubectl rollout status deployment candy-deployment
+
+After chnaging version and new things added:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: candy-deployment
+spec:
+  replicas: 2  
+strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25% 
+   selector:
+    matchLabels:
+      app: candy-ws
+  template:
+    metadata:
+      labels:
+        app: candy-ws
+    spec:
+      containers:
+      - image: linuxacademycontent/candy-service:3
+        name: candy-ws
+		
+kubectl apply -f candy-deployment.yaml --record=true
+
+kubectl rollout status deployment candy-deployment
+
+kubectl rollout history deployment candy-deployment
+
+if it rolling update fails:
+
+kubectl rollout undo deployment candy-deployment
